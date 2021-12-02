@@ -53,6 +53,7 @@ public class Controller implements Initializable{
         try {
             File file = new File(filePath);
             Scanner sc = new Scanner(file);
+            WordOcurrenceModel wordOcurrenceModel = new WordOcurrenceModel();
             HashMap<String, Integer> wordCountHolder = new HashMap<String, Integer>();
             AtomicInteger position = new AtomicInteger(1);
 
@@ -69,7 +70,12 @@ public class Controller implements Initializable{
                     wordCountHolder.put(word, 1);
                 }
 
+                // Insert Word to Database
+                wordOcurrenceModel.insertWord(word);
+
+
             }
+            wordOcurrenceModel.getResults();
 
 
             System.out.println("\n");
@@ -95,7 +101,7 @@ public class Controller implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
 
         // Set file path for debugging
-        // pathToFileField.setText("/Users/amy/Documents/Valencia College/Fall 2021/Mobile Dev/Week 2/TextCounterJuanGomez/poem.txt");
+        pathToFileField.setText("/Users/amy/Documents/Valencia College/Fall 2021/Mobile Dev/Week 2/TextCounterJuanGomez/poem.txt");
 
         // Initialize and add the columns with property values
         TableColumn<WordOcurrence, String> column1 = new TableColumn<>("#");
