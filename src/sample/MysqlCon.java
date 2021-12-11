@@ -15,7 +15,7 @@ public class MysqlCon {
 
         Connection con = null;
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/word_ocurrences?useSSL=false","root","Valencia2021");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/word_ocurrences?useSSL=false","root","Lady2020");
         } catch (SQLException e) {
             e.printStackTrace();
         }
